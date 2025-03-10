@@ -28,7 +28,26 @@
             info: "Solapur is a city in the southwestern part of Maharashtra, India. It is known for its rich history, textile industry, and religious significance.The city is famous for its Solapur chaddars and towels, which are exported worldwide. Solapur is also home to important religious sites like Siddheshwar Temple, which attracts many devotees.The climate of Solapur is generally hot and dry, with limited rainfall. ",
             image:"https://live.staticflickr.com/172/462567799_c49d7a859b.jpg",
         },
-    }
+    };
+    function getCityInfo(){
+            const cityName = document.getElementById("city").value.toLowerCase();
+            const cityDetails = cityInfo[cityName] ;
+
+            if(!cityDetails){
+                alert("City not found");
+                return;
+            }
+           
+            const cityInfoDiv = document.getElementById("city-info");
+
+            cityInfoDiv.innerHTML =  `
+            <img src="${cityDetails.image}" alt ="${cityDetails.name}" height= "250px"/> 
+            <h2>${cityDetails.name}</h2>
+            <p>State:${cityDetails.state}</p>
+            <p>Country: ${cityDetails.country} </p>
+            <p>${cityDetails.info} </p>
+            `; 
+        }
    </script> 
 </body>
 </html>
